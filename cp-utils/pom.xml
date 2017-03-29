@@ -1,0 +1,112 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.cp.common</groupId>
+    <artifactId>cp-utils</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>jar</packaging>
+    <name>cp-utils</name>
+    <url>http://maven.apache.org</url>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<jdk.version>1.7</jdk.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.jsoup</groupId>
+			<artifactId>jsoup</artifactId>
+			<version>1.10.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-httpclient</groupId>
+			<artifactId>commons-httpclient</artifactId>
+			<version>3.1</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-beanutils</groupId>
+			<artifactId>commons-beanutils</artifactId>
+			<version>1.9.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.6.4</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>com.belerweb</groupId>
+		    <artifactId>pinyin4j</artifactId>
+		    <version>2.5.1</version>
+		</dependency>
+		<dependency>
+		    <groupId>junit</groupId>
+		    <artifactId>junit</artifactId>
+		    <version>4.12</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>commons-io</groupId>
+		    <artifactId>commons-io</artifactId>
+		</dependency>
+	</dependencies>
+	
+	
+
+	<distributionManagement>
+		<repository>
+			<id>my-nexus-releases</id>
+			<url>
+			http://10.10.1.42:8081/nexus/content/repositories/releases/
+			</url>
+		</repository>
+		<snapshotRepository>
+			<id>my-nexus-snapshot</id>
+			<url>
+				http://10.10.1.42:8081/nexus/content/repositories/snapshots/
+				</url>
+		</snapshotRepository>
+	</distributionManagement>
+
+	<profiles>
+		<profile>
+			<id>dev</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<market.process.ip>10.10.8.71:9090</market.process.ip>
+			</properties>
+		</profile>
+		<profile>
+			<id>test</id>
+			<properties>
+				<market.process.ip>10.10.11.71:9090</market.process.ip>
+			</properties>
+		</profile>
+		<profile>
+			<id>subset</id>
+			<properties>
+				<market.process.ip>10.10.12.71:9090</market.process.ip>
+			</properties>
+		</profile>
+		<profile>
+			<id>release</id>
+			<properties>
+				<market.process.ip>10.20.100.71:9090</market.process.ip>
+			</properties>
+		</profile>
+	</profiles>
+</project>

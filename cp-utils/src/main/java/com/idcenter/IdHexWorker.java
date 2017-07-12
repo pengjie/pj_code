@@ -122,7 +122,7 @@ public class IdHexWorker implements IdWorker {
 
         Runnable run = new Runnable(){
             public void run() {
-                System.out.println("生成的ID："+worker.nextId());
+                System.out.println("生成的ID："+worker.nextId()+" str："+toString());
                 countDownLatch.countDown();
             }
         };
